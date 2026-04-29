@@ -12,7 +12,7 @@ ConstructionLK is a full-featured platform designed to revolutionize how constru
 - **Advanced Analytics** - Real-time dashboards with ROI tracking
 - **Premium Features** - Subscription tiers with advanced capabilities
 - **Gamification** - Points, badges, and leaderboards
-- **Real-time Collaboration** - Video calls, messaging, and document sharing
+- **Real-time Collaboration** - Video calls, messaging, and document sharings
 
 ## 🏗️ Architecture & Tech Stack
 
