@@ -6,7 +6,7 @@ import '../repositories/payment_repository.dart';
 import '../repositories/project_repository.dart';
 import '../repositories/review_repository.dart';
 
-// Repository Providers
+
 final projectRepositoryProvider = Provider((ref) => ProjectRepository());
 final bidRepositoryProvider = Provider((ref) => BidRepository());
 final paymentRepositoryProvider = Provider((ref) => PaymentRepository());
@@ -15,5 +15,5 @@ final ratingStatsRepositoryProvider = Provider(
   (ref) => RatingStatsRepository(),
 );
 
-// Firestore instance provider
+
 final firestoreProvider = Provider((ref) => FirebaseFirestore.instance);
