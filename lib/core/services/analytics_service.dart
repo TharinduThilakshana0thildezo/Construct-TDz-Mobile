@@ -3,9 +3,9 @@ import '../models/payment_model.dart';
 import '../models/project_model.dart';
 import '../utils/logger.dart';
 
-/// Service for tracking user analytics and gamification
+
 class AnalyticsService {
-  /// Calculate contractor analytics
+
   Future<Map<String, dynamic>> getContractorAnalytics({
     required List<Bid> submittedBids,
     required List<Payment> payments,
@@ -48,7 +48,7 @@ class AnalyticsService {
     }
   }
 
-  /// Calculate client analytics
+
   Future<Map<String, dynamic>> getClientAnalytics({
     required List<Project> postedProjects,
     required List<Payment> payments,
@@ -83,7 +83,7 @@ class AnalyticsService {
   double _calculateRepeatClientRate(List<Project> projects) {
     if (projects.isEmpty) return 0;
 
-    // Group by client and count how many have more than 1 project
+
     final clientCounts = <String, int>{};
     for (final project in projects) {
       clientCounts[project.clientId] =
@@ -120,9 +120,9 @@ class AnalyticsService {
   }
 }
 
-/// Service for gamification and rewards
+
 class GamificationService {
-  /// Calculate points earned for an action
+
   int calculatePointsForAction(String action) {
     const actionPoints = {
       'bid_submitted': 10,
@@ -140,7 +140,7 @@ class GamificationService {
     return actionPoints[action] ?? 0;
   }
 
-  /// Get current level based on points
+
   String getLevelFromPoints(int points) {
     if (points < 100) return 'Starter';
     if (points < 500) return 'Established';
@@ -149,7 +149,6 @@ class GamificationService {
     return 'Master';
   }
 
-  /// Get progress to next level
   Map<String, dynamic> getLevelProgress(int currentPoints) {
     const levels = {
       'Starter': 100,
@@ -183,7 +182,7 @@ class GamificationService {
   ) {
     final badges = <String>[];
 
-    // Points-based badges
+
     if (points >= 100) badges.add('First Steps');
     if (points >= 500) badges.add('Active Member');
     if (points >= 2000) badges.add('Trusted Professional');
@@ -214,8 +213,6 @@ class LeaderboardService {
     required String? location, // Optional filter
   }) async {
     try {
-      // In real implementation, would query Firestore
-      // For now, returning empty list as placeholder
       return [];
     } catch (e) {
       appLogger.error('Error fetching leaderboard', e);
@@ -223,7 +220,7 @@ class LeaderboardService {
     }
   }
 
-  /// Get contractor rank in leaderboard
+
   Future<int> getContractorRank({
     required String contractorId,
     required String metric,
