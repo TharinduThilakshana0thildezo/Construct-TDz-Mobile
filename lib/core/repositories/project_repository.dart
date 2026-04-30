@@ -69,7 +69,7 @@ class ProjectRepository extends FirestoreRepository<Project> {
     'customFields': project.customFields,
   };
 
-  // Get projects by client
+  
   Future<List<Project>> getProjectsByClient(String clientId) => query(
     field: 'clientId',
     isEqualTo: clientId,
@@ -77,7 +77,7 @@ class ProjectRepository extends FirestoreRepository<Project> {
     descending: true,
   );
 
-  // Stream projects by client
+  
   Stream<List<Project>> streamProjectsByClient(String clientId) => streamQuery(
     field: 'clientId',
     isEqualTo: clientId,
@@ -85,7 +85,7 @@ class ProjectRepository extends FirestoreRepository<Project> {
     descending: true,
   );
 
-  // Get active projects in a district
+
   Future<List<Project>> getActiveProjectsByDistrict(String district) async {
     final snapshot = await firestore
         .collection(collectionPath)
@@ -96,7 +96,7 @@ class ProjectRepository extends FirestoreRepository<Project> {
     return snapshot.docs.map((doc) => fromMap(doc.data())).toList();
   }
 
-  // Get projects with specific skills
+
   Future<List<Project>> getProjectsBySkills(List<String> skills) async {
     try {
       final snapshot = await firestore
@@ -113,7 +113,7 @@ class ProjectRepository extends FirestoreRepository<Project> {
     }
   }
 
-  // Get project details with all related data
+
   Future<Project?> getProjectWithDetails(String projectId) async {
     try {
       final doc = await firestore
@@ -130,7 +130,7 @@ class ProjectRepository extends FirestoreRepository<Project> {
     }
   }
 
-  // Update project progress
+
   Future<void> updateProjectProgress(String projectId, double progress) =>
       update(projectId, {'progressPercent': progress});
 
